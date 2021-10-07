@@ -40,7 +40,10 @@ jobs:
 
       - name: compress output
         run: |
-          tar cvzf install.tgz other/install
+          # Trying to upload the dir results in error, so tar it up
+          # Warning: No files were found with the provided path: other/install/. No artifacts will be uploaded.
+          tar cvzf install.tgz $HOME/other/install
+          pwd
           ls -l
 
       - name: update build artifacts
