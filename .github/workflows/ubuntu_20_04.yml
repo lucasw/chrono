@@ -24,19 +24,13 @@ jobs:
             sudo apt-get install -y libxxf86vm-dev
             sudo apt-get install -y swig
 
-      - name: git clone git@github.com:blaze-lib/blaze.git
-        uses: actions/checkout@v2
-        with:
-          repository: blaze-lib/blaze
-          path: blaze
-          submodules: true
-
       - name: make install dir
         run: |
           mkdir -p $HOME/other/install
 
       - name: build blaze
         run: |
+          git clone https://bitbucket.org/blaze-lib/blaze.git
           mkdir -p build/blaze
           cd build/blaze
           cmake -DCMAKE_INSTALL_PREFIX=$HOME/other/install ../../blaze/
