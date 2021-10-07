@@ -50,8 +50,10 @@ jobs:
         run: |
           # Trying to upload the dir results in error, so tar it up
           # Warning: No files were found with the provided path: other/install/. No artifacts will be uploaded.
+          cur=$PWD
           cd $HOME
-          tar cvzf install.tgz other/install
+          tar cvzf $cur/install.tgz other/install
+          cd $cur
           pwd
           ls -l
 
