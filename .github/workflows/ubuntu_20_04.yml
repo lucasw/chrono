@@ -38,8 +38,13 @@ jobs:
           make install
           ls -l $HOME/other/install
 
+      - name: compress output
+        run: |
+          tar cvzf install.tgz other/install
+          ls -l
+
       - name: update build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: chrono_build
-          path: other/install/
+          path: install.tgz
