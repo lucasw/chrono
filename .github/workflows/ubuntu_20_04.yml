@@ -14,6 +14,12 @@ jobs:
           path: chrono
           submodules: true
 
+      - name: install cuda
+        run: |
+            sudo apt-get install -y nvidia-cuda-toolkit
+            sudo apt-get install -y nvidia-cuda-dev
+            # nvidia-smi
+
       - name: install dependencies
         run: |
             sudo apt-get update -qq
@@ -29,7 +35,6 @@ jobs:
             sudo apt-get install -y libopenmpi-dev
             sudo apt-get install -y libthrust-dev
             sudo apt-get install -y libxxf86vm-dev
-            sudo apt-get install -y nvidia-cuda-dev
             sudo apt-get install -y swig
 
       - name: make install dir
