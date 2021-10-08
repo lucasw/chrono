@@ -25,6 +25,8 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y dpkg
             sudo apt-get install -y freeglut3-dev
+            sudo apt-get install -y g++-8
+            sudo apt-get install -y gcc-8
             sudo apt-get install -y libboost-dev
             sudo apt-get install -y libeigen3-dev
             sudo apt-get install -y libglew-dev
@@ -55,8 +57,7 @@ jobs:
         run: |
           mkdir -p build/chrono
           cd build/chrono
-          # cmake ../../chrono -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-8 -DCMAKE_C_COMPILER=gcc-8 -DENABLE_MODULE_VEHICLE=1 -DENABLE_MODULE_PYTHON=1 -DENABLE_MODULE_OPENGL=1 -DENABLE_MODULE_GPU=1 -DENABLE_MODULE_IRRLICHT=1 -DENABLE_MODULE_MULTICORE=1 -DUSE_MULTICORE_CUDA=1 -DBLAZE_DIR=$HOME/other/install/include -DENABLE_MODULE_SENSOR=0 -DCMAKE_INSTALL_PREFIX=$HOME/other/install
-          cmake ../../chrono -DCMAKE_BUILD_TYPE=Release -DENABLE_MODULE_VEHICLE=1 -DENABLE_MODULE_PYTHON=1 -DENABLE_MODULE_OPENGL=1 -DENABLE_MODULE_GPU=1 -DENABLE_MODULE_IRRLICHT=1 -DENABLE_MODULE_MULTICORE=1 -DUSE_MULTICORE_CUDA=1 -DBLAZE_DIR=$HOME/other/install/include -DENABLE_MODULE_SENSOR=0 -DCMAKE_INSTALL_PREFIX=$HOME/other/install
+          cmake ../../chrono -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-8 -DCMAKE_C_COMPILER=gcc-8 -DENABLE_MODULE_VEHICLE=1 -DENABLE_MODULE_PYTHON=1 -DENABLE_MODULE_OPENGL=1 -DENABLE_MODULE_GPU=1 -DENABLE_MODULE_IRRLICHT=1 -DENABLE_MODULE_MULTICORE=1 -DUSE_MULTICORE_CUDA=1 -DBLAZE_DIR=$HOME/other/install/include -DENABLE_MODULE_SENSOR=0 -DCMAKE_INSTALL_PREFIX=$HOME/other/install
           make
           make install
 
