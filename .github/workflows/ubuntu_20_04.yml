@@ -58,7 +58,8 @@ jobs:
           mkdir -p build/chrono
           cd build/chrono
           cmake ../../chrono -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-8 -DCMAKE_C_COMPILER=gcc-8 -DENABLE_MODULE_VEHICLE=1 -DENABLE_MODULE_PYTHON=1 -DENABLE_MODULE_OPENGL=1 -DENABLE_MODULE_GPU=1 -DENABLE_MODULE_IRRLICHT=1 -DENABLE_MODULE_MULTICORE=1 -DUSE_MULTICORE_CUDA=1 -DBLAZE_DIR=$HOME/other/install/include -DENABLE_MODULE_SENSOR=0 -DCMAKE_INSTALL_PREFIX=$HOME/other/install
-          make
+          # TODO(lucasw) avoid hard-coding, if the real number is more or less would like to use that
+          make -j2
           make install
 
       - name: compress output
